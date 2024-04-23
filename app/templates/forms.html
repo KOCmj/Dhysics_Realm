@@ -1,0 +1,71 @@
+<button class="swap">
+    <button class="L" type="button">Login</button>
+    <button class="S" type="button">SignUp</button>
+</button>
+
+<div class="overlay">
+    <div class="popup">
+        <button class="close-btn">&times;</button>
+
+        <!-- Login Form -->
+        <div class="login-form form-wrapper">
+            <h2 id="login-heading">Login to track coins from the Dhysics ⚡️</h2>
+            <form id="signin-form" method="POST" action="{{ url_for('auth.signin') }}">
+                {{ form.hidden_tag() }}
+                
+                <div class="form-element">
+                    <fieldset id="email-field">
+                        {{ form.email.label }}
+                        {{ form.email(class='form-control', placeholder='Enter your email address') }}
+                    </fieldset>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-element">
+                    <fieldset id="pass-field">
+                        {{ form.password.label }}
+                        {{ form.password(class='form-control', placeholder='Enter your password') }}
+                        <span class="underline"></span>
+                    </fieldset>
+                </div>
+                <div class="form-element">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <div class="form-element">
+                    <button class="submit" type="submit">Sign In</button>
+                </div>
+                <div class="form-element">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="signup-form form-wrapper" style="display: none;">
+            <h2 id="signup-heading">IT'S FREE99! Track digital economics easily with DhysicsRealm ⚡️</h2>
+            <form id="signup-form" method="POST" action="{{ url_for('auth.signup') }}">
+                {{ form.hidden_tag() }}
+                <div class="form-element">
+                    <fieldset id="email-field">
+                        {{ form.email.label }} (Required)
+                        {{ form.email(class='form-control', placeholder='Enter your email address') }}
+                    </fieldset>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-element">
+                    <fieldset id="pass-field">
+                        {{ form.password.label }}
+                        {{ form.password(class='form-control', placeholder='Enter your password') }}
+                        <span class="underline"></span>
+                    </fieldset>
+                </div>
+                <div class="form-element">
+                    <button class="submit" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">

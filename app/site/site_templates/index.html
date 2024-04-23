@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="CC">
+    <div class="cc-container">
+        <table id="cryptoTable">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Supply</th>
+                    <th>Volume</th>
+                    <th>Market Cap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table body JS -->
+            </tbody>
+        </table>
+    </div>
+</section>
+<link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">
+{% endblock %}

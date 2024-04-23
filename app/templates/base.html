@@ -1,0 +1,90 @@
+<!-- Inspired by coingecko -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/e2c889255e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">
+    <title>Digital Realm</title>
+</head>
+<body>
+    <div class="grid" data-controller="navbar" data-action="navbar:click:outside->navbar#hideAccountMenu">
+        <div class="container order-2 2lg:order-none overflow-x-auto 2lg:py-2.5">
+            <div class="py-2 flex items-center">
+                <div class="flex-1 flex gap-x-4 whitespace-nowrap pr-[15px] 2lg:pr-0">
+                    <h1 class="coin">Coins: 14,033</h1>
+                </div>
+            </div>
+        </div>
+
+        <i data-view-component="true" class="fa-btc fab" id="btc"></i>
+        <i data-view-component="true" class="fa-ethereum fab" id="eth"></i>
+
+        <!-- Signup/Login buttons/forms -->
+        <div class="button-container" id="loginSignupButtons">
+            {% if current_user.is_authenticated %}
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="buttonDD">
+                    <i class="fa-solid fa-circle-user"></i>Profile
+                </button>
+                <div id="profileDropdown" class="dropdown-menu hidden">
+                    <a class="DD" href="#">My Profile</a>
+                    <a class="DD" href="#">Settings</a>
+                    <a class="DD" href="{{url_for('auth.logout')}}">Logout</a>
+                </div>
+            </div>
+            {% else %}
+                <button class="LO" id="show-login">Login</button>
+                <button class="SU" id="show-signup">Sign Up</button>
+            {% endif %}
+        </div>
+        
+        <!--popup form -->
+        <div class="popup-container" id="popup-container">
+            {% with form=form %}
+                {% include 'forms.html' %}
+            {% endwith %}
+        </div>
+       
+        <!-- Navbar -->
+        <div id="nav-container">
+            <div id="nav" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+                <div class="flex items-center flex-shrink-0">
+                    <a id="move" href="/" class="flex items-center text-yellow-500 rounded-md px-3 py-2 text-sm font-medium">
+                        <img id="logo" class="h-8 2lg:h-10 block dark:hidden mr-1" src="../static/images/JPEG image 35 copy.jpeg" alt="Logo">
+                        <span class="DR">DhysicsRealm</span>
+                    </a>
+                </div>
+                <div class="sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="/" class="text-yellow-500 rounded-md px-3 py-2 text-sm font-medium">CryptoCurrencies</a>
+                        <a href="{{ url_for('site.learn') }}" class="text-yellow-500 rounded-md px-3 py-2 text-sm font-medium">Learn</a>
+                        <a href="{{ url_for('site.market') }}" class="text-yellow-500 rounded-md px-3 py-2 text-sm font-medium">Market Places</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

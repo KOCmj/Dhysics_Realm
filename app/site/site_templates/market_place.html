@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="MP">Marketplaces</h2>
+<section class="grid">
+    <div class="marketplaces">
+        <ul class="grid-container">
+            <li class="market">
+                <a class="link" href="https://magiceden.io/">magiceden
+                    <img src="../../static/images/JPEG image 37.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://opensea.io/">opensea
+                    <img src="../../static/images/JPEG image 38.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://www.okx.com/web3/marketplace/nft">okx
+                    <img src="../../static/images/JPEG image 39.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://www.tensor.trade/">tensor
+                    <img src="../../static/images/JPEG image 40.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://dew.gg/polygon/collections">dew
+                    <img src="../../static/images/JPEG image 41.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://blur.io/">blur
+                    <img src="../../static/images/JPEG image 42.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://geniidata.com/ordinals/home?ref=8BMK7Z">geniidata
+                    <img src="../../static/images/JPEG image 43.jpeg" alt="">
+                </a>
+            </li>
+            <li class="market">
+                <a class="link" href="https://mscribe.io/">mscribe
+                    <img src="../../static/images/JPEG image 44.jpeg" alt="">
+                </a>
+            </li>
+        </ul>
+        <h1 class="text">There's more but these are the marketplaces I mainly use
+            for nfts and some allow you to buy crypto.</h1>
+    </div>
+</section>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
