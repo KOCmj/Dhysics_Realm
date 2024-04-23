@@ -1,7 +1,7 @@
 // CC Api
 document.addEventListener('DOMContentLoaded', () => {
   const accessKey = '37467671ebd5103a366cb5cc39a6ef3b';
-  const apiUrl = `http://api.coinlayer.com/live?access_key=${accessKey}&expand=1`;
+  const apiUrl = `https://api.coinlayer.com/live?access_key=${accessKey}&expand=1`;
 
   fetch(apiUrl)
       .then(response => response.json())
